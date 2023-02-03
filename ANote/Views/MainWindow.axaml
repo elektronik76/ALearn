@@ -6,7 +6,7 @@
         mc:Ignorable="d" d:DesignWidth="1366" d:DesignHeight="768"
         x:Class="ANote.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="Notebook">
+        Title="NotebookApp">
 	<!--биндинг горячих клавиш-->
 	<Window.KeyBindings>
 		<KeyBinding Gesture ="Ctrl+O" Command="{Binding Open}"/>
