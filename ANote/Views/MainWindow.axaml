@@ -1,0 +1,42 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:ANote.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1366" d:DesignHeight="768"
+        x:Class="ANote.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Notebook">
+	<!--биндинг горячих клавиш-->
+	<Window.KeyBindings>
+		<KeyBinding Gesture ="Ctrl+O" Command="{Binding Open}"/>
+	    <KeyBinding Gesture ="Ctrl+S" Command ="{Binding Save}"/>
+	</Window.KeyBindings>
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+	
+	<!--стандартная разметка гридом-->
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height ="Auto" />
+			<RowDefinition Height ="*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width ="*"/>
+		</Grid.ColumnDefinitions>
+	
+	<!--menu-->
+	<Menu Grid.Row="0" Grid.Column ="0">
+		<MenuItem Header ="File">
+			<MenuItem Header ="Open" Command ="{Binding Open}"/>
+			<MenuItem Header ="Save As" Command ="{Binding Save}"/>
+		</MenuItem>
+	</Menu>
+	
+	<!--text-->
+		<TextBox Grid.Row ="1" Grid.Column="0" Text ="{Binding Data}" AcceptsReturn="True"/>
+	</Grid>
+
+</Window>
